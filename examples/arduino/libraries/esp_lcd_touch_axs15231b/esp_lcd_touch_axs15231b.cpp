@@ -50,6 +50,7 @@ void bsp_touch_read(void)
     touch_i2c_write_read(AXS5106L_ADDR, cmd, 11, data, 14);
 
     if (data[1] == 0 || data[2] == 0 || data[3] < 2 || data[5] < 2 ) {
+        g_touch_data.touch_num = 0; //added this
         return ;
     }
 
